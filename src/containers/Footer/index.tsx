@@ -8,8 +8,10 @@ import {
 } from '@mui/material';
 import { Twitter, Facebook, LinkedIn, ArrowForward } from '@mui/icons-material';
 import { COLOR_CODE } from '@constants';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+    const { t } = useTranslation();
   return (
     <Box
       id="footer-section"
@@ -41,7 +43,7 @@ const Footer = () => {
           {/* Address */}
           <Grid item xs={12} md={4}>
             <Typography variant="h6" fontWeight="bold">
-              Address
+              {t('ADDRESS')}
             </Typography>
             <Typography variant="body2" mt={1}>
               Valletta Buildings, South Street, Valletta - VLT 1103, Malta, US
@@ -57,11 +59,11 @@ const Footer = () => {
           {/* Subscribe */}
           <Grid item xs={12} md={4}>
             <Typography variant="h6" fontWeight="bold">
-              Subscribe
+            {t('SUBSCRIBE')}
             </Typography>
             <Typography variant="body2" mt={1}>
-              Subscribe to our newsletter and be the first to know about our
-              updates
+              
+            {t('SUBSCRIBE_DESCRIPTION')}
             </Typography>
             <Box
               display="flex"
@@ -70,7 +72,7 @@ const Footer = () => {
             >
               <TextField
                 variant="outlined"
-                placeholder="Enter your email"
+                placeholder={t('ENTER_YOUR_EMAIL')}
                 fullWidth
                 sx={{
                   input: { color: 'white' },
