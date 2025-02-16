@@ -6,11 +6,12 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import { CustomNextArrow, CustomPrevArrow } from './ArrowButtons';
 import { MOCK_PARTNERS } from './mock-partners';
+import { useTranslation } from 'react-i18next';
 
 interface OurPartnersProps {}
 
 const OurPartners: React.FC<OurPartnersProps> = ({}) => {
-  const partners = MOCK_PARTNERS
+  const partners = MOCK_PARTNERS;
   const settings = {
     dots: false,
     infinite: true,
@@ -25,13 +26,19 @@ const OurPartners: React.FC<OurPartnersProps> = ({}) => {
       { breakpoint: 480, settings: { slidesToShow: 1 } },
     ],
   };
+  const { t } = useTranslation();
 
   return (
-    <Box id='our-partners-section' sx={{ textAlign: 'center', py: 20, backgroundColor: COLOR_CODE.GREY }}>
+    <Box
+      id="our-partners-section"
+      sx={{ textAlign: 'center', py: 20, backgroundColor: COLOR_CODE.GREY }}
+    >
       <Typography variant="h3" fontWeight="bold" mb={3}>
-        Our Partners
+        {t('OUR_PARTNERS')}
       </Typography>
-      <Box sx={{ maxWidth: 900, margin: '50px auto 20px', position: 'relative' }}>
+      <Box
+        sx={{ maxWidth: 900, margin: '50px auto 20px', position: 'relative' }}
+      >
         <Slider {...settings}>
           {partners.map((partner, index) => (
             <Box key={index} sx={{ px: 2 }}>
