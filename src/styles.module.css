@@ -1,0 +1,117 @@
+.root {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.backgroundAnimation {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, #2d1b69, #4b2a9d, #261b4d);
+  overflow: hidden;
+}
+
+.floatingSquare {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+.appBar {
+  background: transparent !important;
+  position: relative;
+  z-index: 2;
+}
+
+.mainContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 120px;
+}
+
+.title {
+  color: white !important;
+  font-size: 4rem !important;
+  font-weight: bold !important;
+  margin-bottom: 4rem !important;
+}
+
+.subtitle {
+  color: white !important;
+  max-width: 600px;
+  margin: 0 auto 2rem !important;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.countdownItem {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  min-width: 120px;
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletterForm > div {
+  flex: 1;
+}
+
+.curveSeparator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.curveSeparator svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 2.5rem !important;
+  }
+
+  .countdown {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .countdownItem {
+    min-width: 100px;
+  }
+
+  .newsletterForm {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+}
+

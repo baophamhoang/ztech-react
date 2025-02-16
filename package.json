@@ -1,0 +1,43 @@
+{
+  "name": "material-ui-vite-ts",
+  "private": true,
+  "version": "5.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "@fontsource-variable/montserrat": "^5.1.1",
+    "@mui/icons-material": "7.0.0-alpha.1",
+    "@mui/material": "next",
+    "dayjs": "^1.11.13",
+    "i18next": "^24.2.2",
+    "lucide-react": "^0.475.0",
+    "material-ui-popup-state": "^5.3.3",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-i18next": "^15.4.0",
+    "react-slick": "^0.30.3",
+    "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "@types/node": "^22.13.4",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@types/react-slick": "^0.23.13",
+    "@vitejs/plugin-react": "latest",
+    "eslint": "^9.19.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.18",
+    "globals": "^15.14.0",
+    "prettier": "3.5.1",
+    "typescript": "latest",
+    "typescript-eslint": "^8.22.0",
+    "vite": "latest"
+  }
+}

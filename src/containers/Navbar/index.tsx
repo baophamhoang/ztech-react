@@ -1,0 +1,153 @@
+import ElevationScroll from '@components/ElevationScroll';
+import { COLOR_CODE } from '@constants';
+import { Close } from '@mui/icons-material';
+import MenuIcon from '@mui/icons-material/Menu';
+import { Stack } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import Toolbar from '@mui/material/Toolbar';
+import * as React from 'react';
+import { useTranslation } from 'react-i18next';
+import { scrollTo } from '@utils';
+import LangPicker from './LanguagePicker';
+
+interface Props {
+  window?: () => Window;
+}
+const drawerWidth = '100%';
+const navItems: { name: string; href: string }[] = [
+  { name: 'ABOUT_US', href: 'about-us-section' },
+  { name: 'GAMES', href: 'our-games-section' },
+  { name: 'PARTNERS', href: 'our-partners-section' },
+  { name: 'CONTACT_US', href: 'footer-section' },
+];
+
+export default function DrawerAppBar(props: Props) {
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const { t } = useTranslation();
+
+  const handleDrawerToggle = () => {
+    setMobileOpen((prevState) => !prevState);
+  };
+
+  const onNavbarItemClick = (sectionId: string) => {
+    scrollTo(sectionId);
+  };
+
+  const onNavbarItemMobileClick = (sectionId: string) => {
+    handleDrawerToggle();
+    scrollTo(sectionId);
+  };
+
+  const drawer = (
+    <Box sx={{ textAlign: 'center' }}>
+      {/* <Box component="img" src="/white_logo.png" alt="logo"></Box> */}
+      <Stack flexDirection="row" justifyContent="space-between">
+        <Box
+          sx={{
+            bgcolor: COLOR_CODE.GREY,
+            border: `1px solid #AFAFAF`,
+            borderRadius: '10px',
+            height: '100%',
+          }}
+        >
+          <LangPicker />
+        </Box>
+
+        <IconButton onClick={handleDrawerToggle}>
+          <Close sx={{ fontSize: '50px' }} />
+        </IconButton>
+      </Stack>
+
+      {/* Language Selector (Placeholder) */}
+
+      <List>
+        {navItems.map((item) => (
+          <ListItem key={item.name} disablePadding>
+            <ListItemButton
+              sx={{ textAlign: 'center' }}
+              href={item.href}
+              onClick={() => onNavbarItemMobileClick(item.href)}
+            >
+              {t(item.name)}
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
+
+  return (
+    <Box sx={{ display: 'flex' }}>
+      <ElevationScroll>
+        <AppBar component="nav" sx={{ pt: 2 }}>
+          <Toolbar>
+            <Box sx={{ flexGrow: 1 }}>
+              <Box
+                component="img"
+                width={72}
+                src="/white_logo.png"
+                alt="logo"
+              ></Box>
+            </Box>
+
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ ml: 'auto', display: { sm: 'none' } }}
+            >
+              <MenuIcon sx={{ fontSize: '32px' }} />
+            </IconButton>
+
+            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+              {navItems.map((item) => (
+                <Button
+                  key={item.name}
+                  sx={{ color: '#fff', fontWeight: 600, fontSize: 14, mr: 5 }}
+                  onClick={() => onNavbarItemClick(item.href)}
+                >
+                  {t(item.name)}
+                </Button>
+              ))}
+              <LangPicker />
+            </Box>
+          </Toolbar>
+        </AppBar>
+      </ElevationScroll>
+      <nav>
+        <Drawer
+          container={container}
+          anchor="right"
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: 'block', sm: 'none' },
+            '& .MuiDrawer-paper': {
+              padding: 2,
+              boxSizing: 'border-box',
+              width: drawerWidth,
+            },
+          }}
+        >
+          {drawer}
+        </Drawer>
+      </nav>
+    </Box>
+  );
+}
