@@ -56,8 +56,8 @@ const AboutUs: React.FC<AboutUsProps> = ({}) => {
               {[
                 {
                   icon: <AccessTime />,
-                  title: t('24_HOUR'),
-                  desc: t('24_HOUR_DESCRIPTION'),
+                  title: t('TWENTYFOUR_HOUR'),
+                  desc: t('TWENTYFOUR_HOUR_DESCRIPTION'),
                 },
                 {
                   icon: <Palette />,
