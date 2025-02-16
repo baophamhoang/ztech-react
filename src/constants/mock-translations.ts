@@ -5,7 +5,7 @@ export const MOCK_TRANSLATION: Resource = {
     translation: {
       ABOUT_US: 'About Us',
       GAMES: 'Games',
-      PARNTERS: 'Partner',
+      PARTNERS: 'Partner',
       CONTACT_US: 'Contact US',
       WERE_GETTING_READY: 'We’re Getting Ready',
       WE_WILL_BE_BACK:
@@ -37,7 +37,7 @@ export const MOCK_TRANSLATION: Resource = {
     translation: {
       ABOUT_US: 'Về chúng tôi',
       GAMES: 'Trò chơi',
-      PARNTERS: 'Đối tác',
+      PARTNERS: 'Đối tác',
       CONTACT_US: 'Contact US',
       WERE_GETTING_READY: 'Trò chơi sắp ra mắt',
       WE_WILL_BE_BACK:
