@@ -38,7 +38,7 @@ export const MOCK_TRANSLATION: Resource = {
       ABOUT_US: 'Về chúng tôi',
       GAMES: 'Trò chơi',
       PARTNERS: 'Đối tác',
-      CONTACT_US: 'Contact US',
+      CONTACT_US: 'Liên hệ',
       WERE_GETTING_READY: 'Trò chơi sắp ra mắt',
       WE_WILL_BE_BACK:
         'Chúng tôi sẽ trở lại với một điều tuyệt vời. Để nhận các bản cập nhật mới nhất về trò chơi, vui lòng đăng ký nhận bản tin của chúng tôi.',

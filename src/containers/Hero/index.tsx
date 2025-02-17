@@ -8,12 +8,14 @@ import Countdown from './Countdown';
 import CurvedSeparator from './CurvedSeparator';
 import NewspaperForm from './NewspaperForm';
 import Wizard1 from './Wizard1';
+import { useTranslation } from 'react-i18next';
 
 interface HeroProps {}
 
 const Hero: React.FC<HeroProps> = ({}) => {
   const isTabletView = useResponsive(ScreenSize.TABLET);
   const isMobileView = useResponsive(ScreenSize.MOBILE);
+  const { t } = useTranslation();
   return (
     <Box id="hero-section" position="relative">
       {/* Background */}
@@ -51,8 +53,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
               marginBottom: isTabletView ? '1.5rem' : '1rem',
             }}
             gutterBottom
-          >
-            We're Getting Ready
+          >{t('WERE_GETTING_READY')}
           </Typography>
 
           {/* Countdown Clock */}
@@ -69,8 +70,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
             }}
             gutterBottom
           >
-            We will back to something amazing. Getting the latest updates about
-            our games. Please sign up to our newsletter.
+            {t('WE_WILL_BE_BACK')}
           </Typography>
 
           {/* Newspaper Form */}
