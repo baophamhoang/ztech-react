@@ -11,7 +11,10 @@ const OurGames: React.FC<OurGamesProps> = ({}) => {
   const games = MOCK_GAMES;
   const { t } = useTranslation();
   return (
-    <Box id='our-games-section' sx={{ bgcolor: COLOR_CODE.WHITE, px: { xs: 0, md: 4 } }}>
+    <Box
+      id="our-games-section"
+      sx={{ bgcolor: COLOR_CODE.WHITE, px: { xs: 0, md: 4 } }}
+    >
       <Container maxWidth={false}>
         {/* Title */}
         <Typography variant="h4" fontWeight="bold" align="center" mb={2}>
@@ -31,9 +34,9 @@ const OurGames: React.FC<OurGamesProps> = ({}) => {
         </Typography>
 
         {/* Games Grid */}
-        <Grid container spacing={{xs: 2, md: 4}}>
-          {games.map((game, index) => (
-            <GameCard {...game} index={index} />
+        <Grid container spacing={{ xs: 2, md: 4 }}>
+          {games.map(({ key, ...gameProps }, index) => (
+            <GameCard {...gameProps} key={gameProps.name} index={index} />
           ))}
         </Grid>
       </Container>

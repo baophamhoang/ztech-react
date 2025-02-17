@@ -3,4 +3,5 @@ export const COLOR_CODE = {
   BORDER: '#EEE',
   BLACK: '#000',
   WHITE: '#fff',
+  BLUE: '#079BEE',
 };

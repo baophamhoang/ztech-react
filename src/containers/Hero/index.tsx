@@ -12,9 +12,10 @@ import Wizard1 from './Wizard1';
 interface HeroProps {}
 
 const Hero: React.FC<HeroProps> = ({}) => {
+  const isTabletView = useResponsive(ScreenSize.TABLET);
   const isMobileView = useResponsive(ScreenSize.MOBILE);
   return (
-    <Box id='hero-section' position="relative">
+    <Box id="hero-section" position="relative">
       {/* Background */}
       <HeroBackground />
 
@@ -35,19 +36,19 @@ const Hero: React.FC<HeroProps> = ({}) => {
 
             zIndex: 2,
             textAlign: 'center',
-            paddingTop: '80px',
-            paddingBottom: '120px',
+            paddingTop: isTabletView ? '6rem' : '7.5rem',
+            paddingBottom: isTabletView ? '6rem' : '7.5rem',
           }}
         >
           {/* Title */}
           <Typography
-            variant="h2"
-            component="h2"
+            variant="h1"
+            component="h1"
             color={COLOR_CODE.WHITE}
             sx={{
-              fontSize: '4rem',
+              fontSize: isTabletView ? '2.5rem' : '5rem',
               fontWeight: 'bold',
-              marginBottom: '4rem',
+              marginBottom: isTabletView ? '1.5rem' : '1rem',
             }}
             gutterBottom
           >
@@ -62,8 +63,9 @@ const Hero: React.FC<HeroProps> = ({}) => {
             variant="h6"
             color={COLOR_CODE.WHITE}
             sx={{
+              fontSize: isTabletView ? '0.75rem' : '1.125rem',
               maxWidth: '600px',
-              margin: '0 auto 2rem',
+              margin: isTabletView ? '2rem auto 1rem' : '2rem auto 1rem',
             }}
             gutterBottom
           >
@@ -81,7 +83,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
       {/* Curved Separator */}
       <CurvedSeparator />
 
-      {isMobileView && <Box sx={{ mb: '300px' }}></Box>}
+      {isTabletView && <Box sx={{ marginBottom: isMobileView ? '280px' : '350px' }}></Box>}
     </Box>
   );
 };

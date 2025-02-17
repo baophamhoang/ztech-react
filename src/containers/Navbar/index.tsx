@@ -2,7 +2,7 @@ import ElevationScroll from '@components/ElevationScroll';
 import { COLOR_CODE } from '@constants';
 import { Close } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Stack } from '@mui/material';
+import { Link, Stack, Typography } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -46,7 +46,7 @@ export default function DrawerAppBar(props: Props) {
     scrollTo(sectionId);
   };
 
-  const drawer = (
+  const MobileDrawer = () => (
     <Box sx={{ textAlign: 'center' }}>
       {/* <Box component="img" src="/white_logo.png" alt="logo"></Box> */}
       <Stack flexDirection="row" justifyContent="space-between">
@@ -56,27 +56,41 @@ export default function DrawerAppBar(props: Props) {
             border: `1px solid #AFAFAF`,
             borderRadius: '10px',
             height: '100%',
+            px: 1
           }}
         >
           <LangPicker />
         </Box>
 
-        <IconButton onClick={handleDrawerToggle}>
+        <IconButton sx={{p: 0}} onClick={handleDrawerToggle}>
           <Close sx={{ fontSize: '50px' }} />
         </IconButton>
       </Stack>
 
-      {/* Language Selector (Placeholder) */}
-
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item.name} disablePadding>
+        {navItems.map((item, index) => (
+          <ListItem
+            key={item.name}
+            disablePadding
+            sx={{
+              mt: 1,
+              pb: 1,
+              borderBottom:
+                index !== (navItems.length - 1) ? `${COLOR_CODE.GREY} 1px solid` : '',
+            }}
+          >
             <ListItemButton
-              sx={{ textAlign: 'center' }}
-              href={item.href}
+              sx={{ textAlign: 'center', display: 'block' }}
               onClick={() => onNavbarItemMobileClick(item.href)}
             >
-              {t(item.name)}
+              <Typography
+                color={COLOR_CODE.BLACK}
+                fontWeight={600}
+                fontSize={14}
+                mr={5}
+              >
+                {t(item.name).toUpperCase()}
+              </Typography>
             </ListItemButton>
           </ListItem>
         ))}
@@ -93,12 +107,14 @@ export default function DrawerAppBar(props: Props) {
         <AppBar component="nav" sx={{ pt: 2 }}>
           <Toolbar>
             <Box sx={{ flexGrow: 1 }}>
-              <Box
-                component="img"
-                width={72}
-                src="/white_logo.png"
-                alt="logo"
-              ></Box>
+              <Link href="#">
+                <Box
+                  component="img"
+                  width={72}
+                  src="/white_logo.png"
+                  alt="logo"
+                ></Box>
+              </Link>
             </Box>
 
             <IconButton
@@ -111,14 +127,24 @@ export default function DrawerAppBar(props: Props) {
               <MenuIcon sx={{ fontSize: '32px' }} />
             </IconButton>
 
-            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+            <Box
+              sx={{
+                display: { xs: 'none', sm: 'block' },
+              }}
+            >
               {navItems.map((item) => (
                 <Button
                   key={item.name}
-                  sx={{ color: '#fff', fontWeight: 600, fontSize: 14, mr: 5 }}
                   onClick={() => onNavbarItemClick(item.href)}
                 >
-                  {t(item.name)}
+                  <Typography
+                    color={COLOR_CODE.WHITE}
+                    fontWeight={600}
+                    fontSize={14}
+                    mr={5}
+                  >
+                    {t(item.name).toUpperCase()}
+                  </Typography>
                 </Button>
               ))}
               <LangPicker />
@@ -145,7 +171,7 @@ export default function DrawerAppBar(props: Props) {
             },
           }}
         >
-          {drawer}
+          <MobileDrawer />
         </Drawer>
       </nav>
     </Box>

@@ -12,6 +12,7 @@
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
     "@fontsource-variable/montserrat": "^5.1.1",
+    "@fontsource-variable/playfair-display": "^5.1.1",
     "@mui/icons-material": "7.0.0-alpha.1",
     "@mui/material": "next",
     "dayjs": "^1.11.13",

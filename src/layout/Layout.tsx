@@ -1,3 +1,4 @@
+import NavigationButton from '@components/NavigationButton';
 import AboutUs from '@containers/AboutUs';
 import Footer from '@containers/Footer';
 import Hero from '@containers/Hero';
@@ -16,6 +17,8 @@ function Layout() {
         <OurGames />
         <OurPartners />
         <Footer />
+
+        <NavigationButton />
       </Suspense>
     </>
   );
