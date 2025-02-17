@@ -5,6 +5,15 @@ const theme = createTheme({
   cssVariables: true,
   typography: {
     fontFamily: ['Montserrat', 'sans-serif'].join(', '),
+    h1: {
+      fontFamily: ['playfair-display', 'serif'].join(', '),
+    },
+    h2: {
+      fontFamily: ['playfair-display', 'serif'].join(', '),
+    },
+    h4: {
+      fontFamily: ['playfair-display', 'serif'].join(', '),
+    },
   },
   palette: {
     primary: {

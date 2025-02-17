@@ -17,6 +17,9 @@ importers:
       '@fontsource-variable/montserrat':
         specifier: ^5.1.1
         version: 5.1.1
+      '@fontsource-variable/playfair-display':
+        specifier: ^5.1.1
+        version: 5.1.1
       '@mui/icons-material':
         specifier: 7.0.0-alpha.1
         version: 7.0.0-alpha.1(@mui/material@7.0.0-alpha.1(@emotion/react@11.14.0(@types/react@19.0.8)(react@19.0.0))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@19.0.8)(react@19.0.0))(@types/react@19.0.8)(react@19.0.0))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@types/react@19.0.8)(react@19.0.0)
@@ -427,6 +430,9 @@ packages:
 
   '@fontsource-variable/montserrat@5.1.1':
     resolution: {integrity: sha512-eHmSruS3B+4wVaHk6ShNUJj1MbWEohOuriwN/oYR2VY8jRS83a5SKQeG1wu4Eku3v3f5cXTIbfd1tHeQ7GXkiA==}
+
+  '@fontsource-variable/playfair-display@5.1.1':
+    resolution: {integrity: sha512-89gLVOcVRIp0aayWwTcaLGQxhxDT2ZIv7cFU/BjxcWA8iALi8SrlT7dNHdhakb8MeXc0UUw9n8k6kG+jWvX61A==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -1801,6 +1807,8 @@ snapshots:
       levn: 0.4.1
 
   '@fontsource-variable/montserrat@5.1.1': {}
+
+  '@fontsource-variable/playfair-display@5.1.1': {}
 
   '@humanfs/core@0.19.1': {}
 

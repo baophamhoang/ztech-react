@@ -1,5 +1,5 @@
 import { COLOR_CODE } from '@constants';
-import { AccessTime, Groups, Palette } from '@mui/icons-material';
+import { Palette, Workspaces } from '@mui/icons-material';
 import {
   Avatar,
   Box,
@@ -8,6 +8,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
+import { CalendarDays } from 'lucide-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Map from './Map';
@@ -19,7 +20,7 @@ const AboutUs: React.FC<AboutUsProps> = ({}) => {
   const { t } = useTranslation();
   return (
     <Box id="about-us-section" sx={{ bgcolor: 'white', py: { xs: 0, md: 8 } }}>
-      <Container>
+      <Container maxWidth='md'>
         <Stack spacing={4} direction={{ xs: 'column', md: 'row' }}>
           {/* Left Side Content */}
           <Stack spacing={3} flex={1}>
@@ -27,19 +28,19 @@ const AboutUs: React.FC<AboutUsProps> = ({}) => {
               {t('ABOUT_US')}
             </Typography>
 
-            <Typography variant="body1" color="text.secondary">
+            <Typography fontSize='0.875rem' color="text.secondary">
               {t('ABOUT_US_SECTION_DESCRIPTION')}
             </Typography>
 
             <Stack direction="row" spacing={4}>
               <Box>
-                <Typography variant="h3" fontWeight="bold" color="primary">
+                <Typography variant="h3" fontWeight="bold" color={COLOR_CODE.BLUE}>
                   600M+
                 </Typography>
                 <Typography variant="body1">{t('USERS')}</Typography>
               </Box>
               <Box>
-                <Typography variant="h3" fontWeight="bold" color="primary">
+                <Typography variant="h3" fontWeight="bold" color={COLOR_CODE.BLUE}>
                   135+
                 </Typography>
                 <Typography variant="body1">{t('GAMES')}</Typography>
@@ -55,7 +56,7 @@ const AboutUs: React.FC<AboutUsProps> = ({}) => {
             <Stack spacing={3}>
               {[
                 {
-                  icon: <AccessTime />,
+                  icon: <CalendarDays />,
                   title: t('TWENTYFOUR_HOUR'),
                   desc: t('TWENTYFOUR_HOUR_DESCRIPTION'),
                 },
@@ -65,7 +66,7 @@ const AboutUs: React.FC<AboutUsProps> = ({}) => {
                   desc: t('DESIGN_DESCRIPTION'),
                 },
                 {
-                  icon: <Groups />,
+                  icon: <Workspaces />,
                   title: t('TEAM'),
                   desc: t('TEAM_DESCRIPTION'),
                 },
@@ -76,7 +77,7 @@ const AboutUs: React.FC<AboutUsProps> = ({}) => {
                   alignItems="center"
                   spacing={2}
                 >
-                  <Avatar sx={{ bgcolor: 'lightblue', p: 1 }}>
+                  <Avatar sx={{ bgcolor: 'lightblue', p: 1, color: COLOR_CODE.BLACK, }}>
                     {item.icon}
                   </Avatar>
                   <Box>

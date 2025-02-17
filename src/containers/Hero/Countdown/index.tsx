@@ -37,27 +37,23 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
         alignItems: 'center',
         bgcolor: 'white',
         borderRadius: 4,
-        p: 2,
+        px: 2,
+        py: 2,
         width: 'fit-content',
       }}
     >
       {['days', 'hours', 'minutes', 'seconds'].map((unit, index) => (
-        <Stack
-          key={unit}
-          mr={2}
-          flexDirection="row"
-          sx={{ textAlign: 'center' }}
-        >
-          <Stack>
+        <Stack key={unit} flexDirection="row" sx={{ textAlign: 'center' }}>
+          <Stack sx={{ textAlign: 'center' }}>
             <Typography variant="h4" fontWeight="bold">
               {timeLeft[unit as keyof typeof timeLeft]}
             </Typography>
-            <Typography variant="caption">
+            <Typography fontWeight="bold">
               {unit.charAt(0).toUpperCase() + unit.slice(1)}
             </Typography>
           </Stack>
           {index !== 3 && (
-            <Typography ml={2} variant="h4">
+            <Typography mx={{ xs: 1, md: 2 }} variant="h4">
               :
             </Typography>
           )}

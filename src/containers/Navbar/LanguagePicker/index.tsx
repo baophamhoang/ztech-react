@@ -28,7 +28,7 @@ const LangPicker: React.FC<LangPickerProps> = ({}) => {
   const getLangImgUrl = (lang: string) => `/${lang}-flag.png`;
 
   const onLangClick = (event: React.MouseEvent, lang: string) => {
-    event.stopPropagation(); 
+    event.stopPropagation();
     setCurrentLang(lang);
     LanguageService.setLanguage(lang);
     i18n.changeLanguage(lang);
@@ -40,12 +40,9 @@ const LangPicker: React.FC<LangPickerProps> = ({}) => {
         <React.Fragment>
           <Button variant="text" {...bindTrigger(popupState)}>
             <img src={getLangImgUrl(currentLang)} alt="flag" />
-            <ArrowDropDown />
+            <ArrowDropDown sx={{fill: COLOR_CODE.BLACK}}/>
           </Button>
-          <Menu
-            {...bindMenu(popupState)}
-            sx={{ border: `${COLOR_CODE.BORDER} 1px solid` }}
-          >
+          <Menu {...bindMenu(popupState)}>
             {languages.map((lang) => (
               <MenuItem
                 key={lang.code}

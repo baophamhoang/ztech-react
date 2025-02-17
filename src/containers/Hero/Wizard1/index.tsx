@@ -5,15 +5,17 @@ import React from 'react';
 interface Wizard1Props {}
 
 const Wizard1: React.FC<Wizard1Props> = ({}) => {
+  const isTabletView = useResponsive(ScreenSize.TABLET);
   const isMobileView = useResponsive(ScreenSize.MOBILE);
+
   return (
     <Box
       id="wizard-1"
       position="absolute"
       sx={
-        isMobileView
+        isTabletView
           ? {
-              width: '80%',
+              width: isMobileView ? '80%' : '40%',
               left: 0,
               right: 0,
               marginInline: 'auto',
