@@ -15,7 +15,7 @@ const Wizard1: React.FC<Wizard1Props> = ({}) => {
       sx={
         isTabletView
           ? {
-              width: isMobileView ? '80%' : '40%',
+              width: isMobileView ? '360px' : '400px',
               left: 0,
               right: 0,
               marginInline: 'auto',
@@ -23,17 +23,14 @@ const Wizard1: React.FC<Wizard1Props> = ({}) => {
               zIndex: 50,
             }
           : {
+              width: '32vw',
               bottom: 0,
               zIndex: 50,
               transformOrigin: 'left',
             }
       }
     >
-      <img
-        width={isMobileView ? '100%' : '400px'}
-        src="/wizard-1.png"
-        alt="Wizard 1"
-      />
+      <img width={'100%'} src="/wizard-1.png" alt="Wizard 1" />
     </Box>
   );
 };
