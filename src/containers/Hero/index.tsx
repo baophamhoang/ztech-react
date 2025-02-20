@@ -35,7 +35,6 @@ const Hero: React.FC<HeroProps> = ({}) => {
           maxWidth="lg"
           sx={{
             position: 'relative',
-
             zIndex: 2,
             textAlign: 'center',
             paddingTop: isTabletView ? '6rem' : '7.5rem',
@@ -48,33 +47,53 @@ const Hero: React.FC<HeroProps> = ({}) => {
             component="h1"
             color={COLOR_CODE.WHITE}
             sx={{
-              fontSize: isTabletView ? '2.5rem' : '5rem',
-              fontWeight: 'bold',
+              fontSize: isTabletView ? '2.5rem' : '4.5rem',
+              fontWeight: 'black',
               marginBottom: isTabletView ? '1.5rem' : '1rem',
             }}
             gutterBottom
-          >{t('WERE_GETTING_READY')}
+          >
+            {t('WERE_GETTING_READY')}
           </Typography>
 
           {/* Countdown Clock */}
           <Countdown targetDate={dayjs().add(1, 'M')} />
 
           {/* Subtitle */}
-          <Typography
-            variant="h6"
-            color={COLOR_CODE.WHITE}
-            sx={{
-              fontSize: isTabletView ? '0.75rem' : '1.125rem',
-              maxWidth: '600px',
-              margin: isTabletView ? '2rem auto 1rem' : '2rem auto 1rem',
-            }}
-            gutterBottom
-          >
-            {t('WE_WILL_BE_BACK')}
-          </Typography>
-
+          {isTabletView && (
+            <Typography
+              variant="h6"
+              color={COLOR_CODE.WHITE}
+              sx={{
+                fontSize: isTabletView ? '0.75rem' : '1rem',
+                maxWidth: '500px',
+                fontWeight: 400,
+                margin: isTabletView ? '2rem auto 1rem' : '1rem auto 1rem',
+              }}
+              gutterBottom
+            >
+              {t('WE_WILL_BE_BACK')}
+            </Typography>
+          )}
           {/* Newspaper Form */}
           <NewspaperForm />
+
+          {/* Subtitle */}
+          {!isTabletView && (
+            <Typography
+              variant="h6"
+              color={COLOR_CODE.WHITE}
+              sx={{
+                fontSize: isTabletView ? '0.75rem' : '1rem',
+                maxWidth: '500px',
+                fontWeight: 400,
+                margin: isTabletView ? '2rem auto 1rem' : '1rem auto 1rem',
+              }}
+              gutterBottom
+            >
+              {t('WE_WILL_BE_BACK')}
+            </Typography>
+          )}
         </Container>
       </Box>
 
@@ -83,7 +102,9 @@ const Hero: React.FC<HeroProps> = ({}) => {
       {/* Curved Separator */}
       <CurvedSeparator />
 
-      {isTabletView && <Box sx={{ marginBottom: isMobileView ? '280px' : '350px' }}></Box>}
+      {isTabletView && (
+        <Box sx={{ marginBottom: isMobileView ? '280px' : '350px' }}></Box>
+      )}
     </Box>
   );
 };

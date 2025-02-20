@@ -20,11 +20,7 @@ const OurPartners: React.FC<OurPartnersProps> = ({}) => {
     slidesToScroll: 1,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
-    responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 3 } },
-      { breakpoint: 768, settings: { slidesToShow: 2 } },
-      { breakpoint: 480, settings: { slidesToShow: 1 } },
-    ],
+    responsive: [{ breakpoint: 821, settings: { slidesToShow: 3 } }],
   };
   const { t } = useTranslation();
 
@@ -33,7 +29,7 @@ const OurPartners: React.FC<OurPartnersProps> = ({}) => {
       id="our-partners-section"
       sx={{ textAlign: 'center', py: 20, backgroundColor: COLOR_CODE.GREY }}
     >
-      <Typography variant="h3" fontWeight="bold" mb={3}>
+      <Typography variant="h2" fontWeight="bold" mb={3}>
         {t('OUR_PARTNERS')}
       </Typography>
       <Box

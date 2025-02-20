@@ -11,7 +11,7 @@ const HeroBackground: React.FC<HeroBackgroundProps> = ({}) => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'bottom',
-        height: '80vh',
+        height: '90vh',
       }}
     ></Box>
   );
