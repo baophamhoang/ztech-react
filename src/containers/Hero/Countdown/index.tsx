@@ -38,10 +38,11 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
         justifyContent: 'center',
         alignItems: 'center',
         bgcolor: 'white',
-        borderRadius: 4,
+        borderRadius: '20px',
         px: '24px',
         py: isTabletView ? '26px' : '18px',
         width: 'fit-content',
+        boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
       }}
     >
       {['days', 'hours', 'minutes', 'seconds'].map((unit, index) => (
