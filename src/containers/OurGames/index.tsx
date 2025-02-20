@@ -1,8 +1,8 @@
+import { COLOR_CODE } from '@constants';
 import { Box, Container, Grid, Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 import GameCard from './GameCard';
 import { MOCK_GAMES } from './mock-games';
-import { COLOR_CODE } from '@constants';
-import { useTranslation } from 'react-i18next';
 
 interface OurGamesProps {}
 
@@ -17,7 +17,7 @@ const OurGames: React.FC<OurGamesProps> = ({}) => {
     >
       <Container maxWidth={false}>
         {/* Title */}
-        <Typography variant="h4" fontWeight="bold" align="center" mb={2}>
+        <Typography variant="h2"  fontWeight="bold" align="center" mb={2}>
           {t('OUR_GAMES')}
         </Typography>
 

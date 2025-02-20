@@ -1,4 +1,5 @@
 import { COLOR_CODE } from '@constants';
+import useResponsive, { ScreenSize } from '@hooks/useResponsive';
 import { ArrowDownward, ArrowUpward } from '@mui/icons-material';
 import { Box, IconButton, useScrollTrigger } from '@mui/material';
 import { scrollTo } from '@utils';
@@ -9,6 +10,7 @@ interface NavigationButtonProps {}
 const NEXT_SECTION_ID = 'our-games-section';
 
 const NavigationButton: React.FC<NavigationButtonProps> = ({}) => {
+  const isTabletView = useResponsive(ScreenSize.TABLET);
   const [isArrowUp, setArrowUp] = useState(false);
   const trigger = useScrollTrigger({
     disableHysteresis: true,
@@ -33,9 +35,9 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({}) => {
       id="navigation-btn"
       sx={{
         position: 'fixed',
-        right: '20px',
-        top: '50%',
+        right: '10px',
         zIndex: 100,
+        ...(isTabletView ? { bottom: '10%' } : { top: '50%' }),
       }}
     >
       <IconButton
@@ -50,7 +52,6 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({}) => {
           },
         }}
         onClick={() => {
-          console.log('asdas :>> ');
           onNavigationBtnClick();
         }}
       >

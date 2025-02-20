@@ -12,9 +12,9 @@ const NewspaperForm: React.FC<NewspaperFormProps> = ({}) => {
     <Stack
       sx={{
         gap: '0.5rem',
-        maxWidth: '300px',
-        margin: ' 0 auto',
-        ...(isMobileView ? { padding: '0 1rem' } : {}),
+        maxWidth: '560px',
+        margin: '50px auto 0',
+        ...(isMobileView ? { padding: '0 1rem' } : { p: '18px 14px 0' }),
       }}
     >
       <TextField
@@ -22,7 +22,7 @@ const NewspaperForm: React.FC<NewspaperFormProps> = ({}) => {
         placeholder="Enter your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        sx={{ bgcolor: 'white', borderRadius: 1, '> input': { p: 1 } }}
+        sx={{ bgcolor: 'white', borderRadius: '8px', '> input': { p: 1 } }}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">

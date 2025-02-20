@@ -18,6 +18,7 @@ const Footer = () => {
       sx={{
         background: `url('/footer-background.webp')`,
         backgroundPosition: 'bottom',
+        backgroundSize: 'cover',
         color: 'white',
         pt: 6,
       }}

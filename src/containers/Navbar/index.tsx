@@ -16,6 +16,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { scrollTo } from '@utils';
 import LangPicker from './LanguagePicker';
+import useResponsive, { ScreenSize } from '@hooks/useResponsive';
 
 interface Props {
   window?: () => Window;
@@ -30,6 +31,7 @@ const navItems: { name: string; href: string }[] = [
 
 export default function DrawerAppBar(props: Props) {
   const { window } = props;
+  const isTabletView = useResponsive(ScreenSize.TABLET);
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const { t } = useTranslation();
 
@@ -56,13 +58,13 @@ export default function DrawerAppBar(props: Props) {
             border: `1px solid #AFAFAF`,
             borderRadius: '10px',
             height: '100%',
-            px: 1
+            px: 1,
           }}
         >
           <LangPicker />
         </Box>
 
-        <IconButton sx={{p: 0}} onClick={handleDrawerToggle}>
+        <IconButton sx={{ p: 0 }} onClick={handleDrawerToggle}>
           <Close sx={{ fontSize: '50px' }} />
         </IconButton>
       </Stack>
@@ -76,7 +78,9 @@ export default function DrawerAppBar(props: Props) {
               mt: 1,
               pb: 1,
               borderBottom:
-                index !== (navItems.length - 1) ? `${COLOR_CODE.GREY} 1px solid` : '',
+                index !== navItems.length - 1
+                  ? `${COLOR_CODE.GREY} 1px solid`
+                  : '',
             }}
           >
             <ListItemButton
@@ -87,7 +91,6 @@ export default function DrawerAppBar(props: Props) {
                 color={COLOR_CODE.BLACK}
                 fontWeight={600}
                 fontSize={14}
-                mr={5}
               >
                 {t(item.name).toUpperCase()}
               </Typography>
@@ -104,7 +107,7 @@ export default function DrawerAppBar(props: Props) {
   return (
     <Box sx={{ display: 'flex' }}>
       <ElevationScroll>
-        <AppBar component="nav" sx={{ pt: 2 }}>
+        <AppBar component="nav" sx={{ pt: 2, px: isTabletView ? 1 : 5 }}>
           <Toolbar>
             <Box sx={{ flexGrow: 1 }}>
               <Link href="#">
@@ -139,7 +142,7 @@ export default function DrawerAppBar(props: Props) {
                 >
                   <Typography
                     color={COLOR_CODE.WHITE}
-                    fontWeight={600}
+                    fontWeight={700}
                     fontSize={14}
                     mr={5}
                   >
